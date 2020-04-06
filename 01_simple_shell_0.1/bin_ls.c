@@ -1,26 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <sys/wait.h>
-
-int _strcmp(char *s1, char *s2)
-{
-	int a;
-
-	for (a = 0; s1[a] != 0; a++)
-	{
-	}
-	for (a = 0; s2[a] != 0; a++)
-	{
-		if (s1[a] != s2[a])
-		{
-			return (s1[a] - s2[a]);
-		}
-	}
-	return (0);
-}
-
+#include "holberton.h"
 
 int main(void)
 {
@@ -32,6 +10,19 @@ int main(void)
 
 		int id;
 		int status;
+
+		int i;
+
+		char *builtin_str[] = {
+			"/bin/ls",
+			"ls",
+			"exit"
+		};
+		/*int (*builtin_func[]) (char **) = {
+			&lsh_ls,
+			&lsh_ls,
+			&lsh_exit
+		};*/
 
 		buffer = (char *)malloc(bufsize * sizeof(char));
 		if (buffer == NULL)
@@ -45,7 +36,14 @@ int main(void)
 		
 		getline(&buffer, &bufsize, stdin);
 
+
 		/*Function _strcmp compares two string*/
+		for (i = 0; i < 3; i++) {
+			if (_strcmp(buffer, builtin_str[i]) == 0) {
+				/*return (*builtin_func[i])(args);*/
+				printf("- %s, %s", builtin_str[i]);
+			}
+		}
 		str_equal = _strcmp(buffer, "/bin/ls");
 
 		if (str_equal == 0)
