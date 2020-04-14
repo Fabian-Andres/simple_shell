@@ -5,8 +5,6 @@
 #include <string.h>
 #include <unistd.h>
 #include <sys/wait.h>
-/* _strcmp - compare two strings */
-int _strcmp(char *s1, char *s2);
 char **_get_command_and_options(char *buffer, ssize_t characters_read);
-
+void _result_fork(char **options);
 #endif
