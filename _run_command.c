@@ -6,7 +6,7 @@
  * @options: options.
  * Return: void.
  */
-void _run_command(char **options)
+void _run_command(char **options, char *shell_name)
 {
 	int execve_status;
 	pid_t id;
@@ -18,7 +18,7 @@ void _run_command(char **options)
 		char *env_args[] = { (char *)0 };
 
 		execve(options[0], options, env_args);
-		perror(options[0]);
+		perror(shell_name);
 
 		exit(0);
 	}

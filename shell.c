@@ -5,13 +5,14 @@
  *
  * Return: options.
  */
-int main(void)
+int main(int arg_count, char *args[])
 {
 	while (1) /*true*/
 	{
 		char **options = NULL, *buffer;
 		int characters;
 		size_t bufsize = 1024;
+		(void)arg_count;
 
 		buffer = (char *)malloc(bufsize * sizeof(char));
 		if (buffer == NULL)
@@ -31,7 +32,7 @@ int main(void)
 			free(options);
 			break;
 		}
-		_run_command(options);
+		_run_command(options, args[0]);
 		
 
 	}
