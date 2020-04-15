@@ -31,8 +31,8 @@ int main(void)
 			free(options);
 			break;
 		}
-
 		_run_command(options);
+		
 
 	}
 	return (0);

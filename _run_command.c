@@ -18,6 +18,8 @@ void _run_command(char **options)
 		char *env_args[] = { (char *)0 };
 
 		execve(options[0], options, env_args);
+		perror(options[0]);
+
 		exit(0);
 	}
 	else
