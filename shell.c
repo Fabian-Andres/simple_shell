@@ -32,7 +32,7 @@ int main(void)
 			break;
 		}
 
-		_result_fork(options);
+		_run_command(options);
 
 	}
 	return (0);
