@@ -1,0 +1,16 @@
+.TH man 1 "14 Abril 2020" 0.00 "Simple Shell Man Page"
+.SH NAME 
+.B Simple Shell
+- project printf .
+.SH SYNOPSIS
+shell [command string]
+.SH DESCRIPTION
+The Simple Shell project is a simple UNIX command interpreter.
+.SH COMMAND EXECUTION
+After a command is read by the interpreter, it will be split into tokens. Depending on input, the  following actions will take place.
+.SH PROMPT
+The shell will display the prompt through the PS1, ready to take the next command.
+.SH BUGS
+No known bugs.
+.SH AUTHOR
+Lizeth Victoria, Fabian Riascos
