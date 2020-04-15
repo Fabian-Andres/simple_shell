@@ -8,7 +8,7 @@
  */
 void _result_fork(char **options)
 {
-	int i, execve_status;
+	int execve_status;
 	pid_t id;
 
 	id = fork();
@@ -27,12 +27,6 @@ void _result_fork(char **options)
 			if (WIFEXITED(execve_status) && !WEXITSTATUS(execve_status))
 			{
 				/*Execve is successful*/
-				for (i = 0; options[i] != NULL; i++)
-				{
-					free(options[i]);
-				}
-				free(options[i]);
-				free(options);
 			}
 			else
 			{
