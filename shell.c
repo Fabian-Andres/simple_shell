@@ -18,7 +18,7 @@ int main(void)
 		{
 			exit(1);
 		}
-		printf("$ ");
+		write(1, "#cisfun$ ", 9);
 
 		characters = getline(&buffer, &bufsize, stdin);
 		options = malloc(sizeof(char *));

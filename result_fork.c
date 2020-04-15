@@ -36,7 +36,7 @@ void _result_fork(char **options)
 			}
 			else
 			{
-				printf("execv failed\n");
+				write(1, "./shell: No such file or directory\n", 36);
 				exit(EXIT_FAILURE);
 			}
 		}
