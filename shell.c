@@ -5,20 +5,21 @@
  *
  * Return: options.
  */
-int main(void)
+int main(int arg_count, char *args[])
 {
 	while (1) /*true*/
 	{
 		char **options = NULL, *buffer;
 		int characters;
 		size_t bufsize = 1024;
+		(void)arg_count;
 
 		buffer = (char *)malloc(bufsize * sizeof(char));
 		if (buffer == NULL)
 		{
 			exit(1);
 		}
-		printf("$ ");
+		write(1, "#cisfun$ ", 9);
 
 		characters = getline(&buffer, &bufsize, stdin);
 		options = malloc(sizeof(char *));
@@ -31,8 +32,8 @@ int main(void)
 			free(options);
 			break;
 		}
-
-		_result_fork(options);
+		_run_command(options, args[0]);
+		
 
 	}
 	return (0);

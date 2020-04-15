@@ -6,9 +6,9 @@
  * @options: options.
  * Return: void.
  */
-void _result_fork(char **options)
+void _run_command(char **options, char *shell_name)
 {
-	int i, execve_status;
+	int execve_status;
 	pid_t id;
 
 	id = fork();
@@ -18,6 +18,8 @@ void _result_fork(char **options)
 		char *env_args[] = { (char *)0 };
 
 		execve(options[0], options, env_args);
+		perror(shell_name);
+
 		exit(0);
 	}
 	else
@@ -27,16 +29,10 @@ void _result_fork(char **options)
 			if (WIFEXITED(execve_status) && !WEXITSTATUS(execve_status))
 			{
 				/*Execve is successful*/
-				for (i = 0; options[i] != NULL; i++)
-				{
-					free(options[i]);
-				}
-				free(options[i]);
-				free(options);
 			}
 			else
 			{
-				printf("execv failed\n");
+				write(1, "./shell: No such file or directory\n", 36);
 				exit(EXIT_FAILURE);
 			}
 		}

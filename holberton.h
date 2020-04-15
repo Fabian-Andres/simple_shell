@@ -6,5 +6,6 @@
 #include <unistd.h>
 #include <sys/wait.h>
 char **_get_command_and_options(char *buffer, ssize_t characters_read);
-void _result_fork(char **options);
+void _run_command(char **options, char *shell_name);
+
 #endif
