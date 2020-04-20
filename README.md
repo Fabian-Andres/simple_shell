@@ -13,7 +13,7 @@ $ git clone https://github.com/Fabian-Andres/simple_shell.git
 
 To start the shell you need enter to folder project `cd simple_shell` and run this command on your terminal:
 ```
-$ 
+$ gcc -Wall -Werror -Wextra -pedantic *.c -g hsh
 ```
 
 ### Authors
